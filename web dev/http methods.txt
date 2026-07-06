@@ -1,0 +1,25 @@
+when a client talks to backend, it muat tell backend what it wants to do
+http provides standard actions called http methods
+
+the big 4
+| HTTP Method | Meaning              | SQL Equivalent |
+| ----------- | -------------------- | -------------- |
+| GET         | Read data            | SELECT         |
+| POST        | Create new data      | INSERT         |
+| PUT/PATCH   | Update existing data | UPDATE         |
+| DELETE      | Remove data          | DELETE         |
+
+
+1.GET data
+it only GETS and READS data and NEVER CHANGES it
+
+2.POST
+creats something new, adds to the data
+
+3.PUT/PATCH 
+suppose student changes username
+PUT/PATCH updates the username
+existing data changes
+
+4.DELETE
+delets data

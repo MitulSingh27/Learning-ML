@@ -32,7 +32,7 @@ server is like a manager, decides
     should i call an ai model
     should i save new info
 
-client dfoesnt directly talk to database because ppl will sabotage
+client doesnt directly talk to database because ppl will sabotage
 delete,update records etc
 
 phone--->backend(fastapi)-->database
