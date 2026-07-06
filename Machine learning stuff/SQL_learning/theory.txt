@@ -1,0 +1,29 @@
+SQL-
+
+CREATE TABLE-
+CREATE TABLE users (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    city VARCHAR(50)
+);
+
+INSERT-
+INSERT INTO users VALUES (1,'Rahul',22,'Bangalore');
+
+SELECT-
+SELECT * FROM users;  #selects everything
+
+DELETE-
+DELETE FROM users WHERE id = 2;
+DELETE FROM table_name, deletes full table
+
+UPDATE-
+UPDATE table_name SET column=value WHERE condition;
+
+PRIMARY KEY-must be UNIQUE and NOT NULL
+NOT NULL-cannot be empty
+UNIQUE-no duplicates allowed
+DEFAULT-uses a value if none if none is provided-"cojtry varchar(50) default "India"
+CHECK- adds a condition- age INT check(age>0)
+FOREIGN KEY-uk wt dis is

@@ -1,0 +1,52 @@
+step 1- request
+
+step 2-request leaves laptop, path-
+        laptop
+        wifi
+        router
+        ISP
+        Internet
+        youtube server
+
+step 3-server recieves request
+    server is just another computer 
+
+    when youtube recieves a request, it asks
+        who is requesting
+        what page do they want
+        are they logged in 
+        should they see recommendations
+        which language to use
+
+step 4-server sends response
+server replies, sends back html,css,javascript,images,fonts and other such data
+
+client-requests
+server-responds
+
+client--->request--->web server---->database
+                               ---->ai model
+server is like a manager, decides
+    if request should be allowed
+    do i need to read the databas
+    should i call an ai model
+    should i save new info
+
+client dfoesnt directly talk to database because ppl will sabotage
+delete,update records etc
+
+phone--->backend(fastapi)-->database
+
+
+flow for most modern applications
+    client(request)
+
+    backend(server)
+
+    databse
+
+    backend
+
+    client(response)
+
+    

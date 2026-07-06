@@ -1,0 +1,41 @@
+Model keeps asking questions until it reaches a final answer
+
+logistic regression does only math
+decision trees ask questions after questions 
+
+real world uses-
+bank loan approval
+disease prediction
+fraud detection
+predictive maintenance
+
+strengths-
+easy to understand, can literally draw the Model
+works with non linear data
+little data preperation, often scaling isnt needed, normalization isnt required
+
+weaknesses-
+overfitting, biggest problem
+unstable, small change can create a different tree
+
+CORE TERMS-
+root node-starting point
+branch-path taken
+internal node-another question
+leaf node-final answer
+
+now check gini IMPURITY
+
+it splits on various parameters, calculates gini and then sees which is the LEAST
+split-
+Try every possible split
+        ↓
+Calculate Gini for each split
+        ↓
+Choose the split with the lowest Gini
+        ↓
+Repeat on each new branch
+        ↓
+Stop when the groups are pure (or another stopping rule is met)
+
+

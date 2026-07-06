@@ -1,0 +1,58 @@
+| Person | Credit Score | Loan Approved |
+| ------ | ------------ | ------------- |
+| A      | High         | Yes           |
+| B      | High         | Yes           |
+| C      | High         | Yes           |
+| D      | Medium       | No            |
+| E      | Medium       | No            |
+| F      | Low          | No            |
+| G      | Low          | No            |
+| H      | Low          | No            |
+There are 8 people.
+Yes = 3
+No = 5
+
+step1-
+Now the tree asks:
+"Should I split using Credit Score?"
+
+step2-
+    high credit score
+    | Person | Approved? |
+    | ------ | --------- |
+    | A      | Yes       |
+    | B      | Yes       |
+    | C      | Yes       |
+3 People-
+    Yes : 3
+    No  : 0
+    gini=0
+
+    Medium credit score
+    | Person | Approved? |
+    | ------ | --------- |
+    | D      | No        |
+    | E      | No        |
+2 people
+    yes:0
+    no:0
+    gini=0
+
+    Low Credit score
+    | Person | Approved? |
+    | ------ | --------- |
+    | F      | No        |
+    | G      | No        |
+    | H      | No        |
+3 people
+    yes:0
+    no:3
+    gini=3
+
+
+
+
+
+
+
+

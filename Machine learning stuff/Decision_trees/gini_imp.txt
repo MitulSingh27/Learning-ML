@@ -1,0 +1,39 @@
+GINI IMPURITY
+
+scoring system for randomness of data
+perfectly pure=0
+completely mixed=1
+everything else in between 
+
+case study to understand-
+
+Classsroom A-
+    teacher wants to separate students into passed and failed
+    because its easier to describe the classroom-
+    if everyone passed, any random student passed
+    classroom is pure
+GINI=0
+
+Classroom B-
+    if mostly passed, cant tell about everyone, because some students failed
+GINI is greater than 0
+
+Classroom C-
+    half passed
+    half failed
+now full confusion
+GINI is high
+
+GINI measures how mixed a group is 
+
+
+gini 0-                 perfectly pure
+small-                  mostly one class
+large-                  mixed class 
+0.5 (for 2 classes)-    max IMPURITY
+
+
+A DECISION TREE CHOOSES THE SPLIT WHICH GIVES THE LEAST GINI IMPURITY BECAUSE LOWER GINI MEANS BETTER
+
+formula- 1-((Pyes^2)-(Pno^2))
+we square because it rewards purity

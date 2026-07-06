@@ -1,0 +1,16 @@
+http- set of rules that clients and servers use to communicate
+every app uses http
+
+http request consists of info
+    what action do you want
+    which resourse 
+    any extra info
+    etc
+
+think of http like a postal service
+
+URL- it is the address of the server (often with a resource)
+    ex-
+    https://youtube.com --> youtube
+    https://youtube.com/watch?v=abc123 --> youtube, with this video
+    
