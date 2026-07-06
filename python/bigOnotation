@@ -1,0 +1,259 @@
+Big O notation
+🔢 Big O Notation (Quick Summary)
+Big O notation describes how fast an algorithm grows as the input size (n) increases.
+
+👉 It focuses on worst-case performance
+👉 It ignores constants and small differences
+👉 It tells you scalability, not exact time
+
+
+🧠 Why it matters
+When you're coding (especially for interviews or real systems), Big O helps you answer:
+Will this work for 1,000 inputs?
+What about 1 million?
+Is this efficient enough?
+
+📈 Common Time Complexities
+Complexity    	Name	        Growth Rate	                Example
+O(1)	        Constant	    No growth	                Access array index
+O(log n)	    Logarithmic	    Very slow growth	        Binary search
+O(n)	        Linear	        Grows with n	            Loop through array
+O(n log n)	    Linearithmic	Slightly worse than linear	Merge sort
+O(n²)	        Quadratic	    Gets slow fast	            Nested loops
+O(2ⁿ)	        Exponential	    Extremely slow	            Recursive brute force
+O(n!)	        Factorial	    Worst possible	            Permutations
+
+
+⚡ Intuition (Super Important)
+
+O(1) → Always fast,
+
+O(log n) → Scales insanely well
+
+O(n) → Acceptable
+
+O(n²) → Dangerous for large inputs
+
+O(2ⁿ) → Avoid unless n is tiny
+
+
+
+🧩 Examples
+1. Constant Time, when input size increases, time stays almost the same
+arr[0]
+👉 O(1)
+
+2. Linear Time,input increases,time also increases
+for i in arr:
+    print(i)
+👉 O(n)
+
+3. Quadratic Time
+for i in arr:
+    for j in arr:
+        print(i, j)
+👉 O(n²)
+
+4. Logarithmic Time
+# Binary search
+👉 O(log n)
+
+
+
+🧮 Rules to Remember
+1. Drop constants
+O(2n) → O(n)
+
+2. Drop lower-order terms
+O(n² + n) → O(n²)
+
+3. Nested loops multiply
+O(n) * O(n) = O(n²)
+
+4. Separate loops add
+for i in arr:   # O(n)
+for j in arr:   # O(n)
+👉 O(n + n) = O(n)
+
+🎯 Final Takeaway
+👉 Big O = How your code scales when input grows
+👉 Lower Big O = better performance
+👉 In interviews, aim for O(n) or better
+
+
+
+
+🧠 Space Complexity (Bonus)
+Big O also measures memory usage:
+O(1) → no extra memory
+O(n) → extra array/list
+O(n²) → matrix
+
+🧠 What is Space Complexity?
+👉 Space Complexity = How much extra memory your algorithm uses as input grows
+It includes:
+Variables
+Data structures (arrays, lists, dicts)
+Function call stack (recursion)
+
+⚠️ Important Clarification
+👉 We usually DON’T count input size itself
+👉 We count extra/auxiliary space
+
+📦 Types of Space Complexity
+Type	    Meaning
+O(1)	    Constant space (no extra memory grows)
+O(n)	    Linear space (memory grows with input)
+O(n²)	    Matrix/grid-like memory
+O(log n)	Recursive stack (binary split)
+
+🔍 Example 1: Constant Space — O(1)
+def sum_array(arr):
+    total = 0
+    for num in arr:
+        total += num
+    return total
+🧮 Calculation:
+total → 1 variable
+num → 1 variable
+👉 Memory does NOT grow with n
+✅ Space Complexity = O(1)
+
+🔍 Example 2: Linear Space — O(n)
+def copy_array(arr):
+    new_arr = []
+    for num in arr:
+        new_arr.append(num)
+    return new_arr
+🧮 Calculation:
+new_arr stores n elements
+👉 If input = 5 → stores 5
+👉 If input = 1000 → stores 1000
+✅ Space Complexity = O(n)
+
+🔍 Example 3: Two Arrays — Still O(n)
+def double_copy(arr):
+    arr1 = arr.copy()
+    arr2 = arr.copy()
+    return arr1, arr2
+🧮 Calculation:
+arr1 → n
+arr2 → n
+👉 Total = n + n = 2n
+👉 Drop constant
+✅ O(2n) → O(n)
+
+🔍 Example 4: Nested Storage — O(n²)
+def create_matrix(n):
+    matrix = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append(0)
+        matrix.append(row)
+    return matrix
+🧮 Calculation:
+n rows
+each row has n elements
+👉 Total = n × n = n²
+✅ Space Complexity = O(n²)
+
+🔍 Example 5: Recursion — O(n)
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n-1)
+🧮 Calculation:
+Each function call waits in memory
+Stack depth = n
+👉 If n = 5 → 5 calls in memory
+✅ Space Complexity = O(n)
+
+🔍 Example 6: Binary Recursion — O(log n)
+def binary_search(arr, left, right, target):
+    if left > right:
+        return -1
+    
+    mid = (left + right) // 2
+    
+    if arr[mid] == target:
+        return mid
+    elif arr[mid] > target:
+        return binary_search(arr, left, mid - 1, target)
+    else:
+        return binary_search(arr, mid + 1, right, target)
+🧮 Calculation:
+Each step halves the problem
+Stack depth = log n
+👉 Very efficient memory usage
+✅ Space Complexity = O(log n)
+
+
+⚡ Golden Rules (Super Important)
+1. Variables = O(1)
+Even if loop runs 1 million times → still constant space
+
+2. New data structures = O(n)
+If you create something that grows → count it
+
+3. Recursion = stack space
+Linear recursion → O(n)
+Divide & conquer → O(log n)
+
+4. Ignore constants
+O(2n) → O(n)
+O(n + 100) → O(n)
+
+🧠 Intuition Trick (This is KEY)
+Ask yourself:
+👉 “Am I storing more stuff as input grows?”
+❌ No → O(1)
+✅ Yes, linearly → O(n)
+✅ Yes, in grid → O(n²)
+
+🎯 Final Understanding
+Time Complexity = how long it takes
+Space Complexity = how much memory it takes
+👉 In interviews, optimized code = low time + low space
+
+
+
+
+recognition patterns
+🔹 1. Linear Scan → O(n)
+for i in range(n):
+    ...
+🧠 Instinct:
+“Touches every element once → O(n)”
+
+🔹 2. Nested Loops → O(n²)
+for i in range(n):
+    for j in range(n):
+        ...
+🧠 Instinct:
+“For each element, I scan all elements → O(n²)”
+
+🔹 3. Shrinking / Halving → O(log n)
+while n > 1:
+    n //= 2
+🧠 Instinct:
+“Cuts problem in half → log n”
+
+🔹 4. Loop + Log → O(n log n)
+for i in range(n):
+    binary_search(...)
+🧠 Instinct:
+“Do log n work for each element → n log n”
+
+🔹 5. Branching Recursion → O(2ⁿ)
+f(n-1) + f(n-2)
+🧠 Instinct:
+“Splitting into multiple paths → exponential”
+
+
+
+👉 Rule: Number of nested loops = power of n
+Nested Loops	Complexity
+1 loop	O(n)
+2 loops	O(n²)
+3 loops	O(n³)

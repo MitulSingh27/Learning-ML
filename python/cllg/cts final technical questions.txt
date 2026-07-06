@@ -1,0 +1,596 @@
+Array 
+1) Largest Element 
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int max = arr[0];
+    for(int i = 1; i < n; i++) {
+        if(arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    printf("%d", max);
+    return 0;
+}
+----------------------------------------------------   
+2) Smallest Element 
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int min = arr[0];
+    for(int i = 1; i < n; i++) {
+        if(arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    printf("%d", min);
+    return 0;
+}
+----------------------------------------
+3) Second Largest Element 
+#include <stdio.h>
+#include <limits.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int largest = INT_MIN;
+    int secondLargest = INT_MIN;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] > largest) {
+            secondLargest = largest;
+            largest = arr[i];
+        }
+        else if(arr[i] > secondLargest && arr[i] != largest) {
+            secondLargest = arr[i];
+        }
+    }
+    if(secondLargest == INT_MIN)
+        printf("-1");
+    else
+        printf("%d", secondLargest);
+
+    return 0;
+}
+----------------------------------------------------
+4) Second Smallest Element 
+#include <stdio.h>
+#include <limits.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int smallest = INT_MAX;
+    int secondSmallest = INT_MAX;
+
+    for(int i = 0; i < n; i++) {
+        if(arr[i] < smallest) {
+            secondSmallest = smallest;
+            smallest = arr[i];
+        }
+        else if(arr[i] < secondSmallest && arr[i] != smallest) {
+            secondSmallest = arr[i];
+        }
+    }
+    if(secondSmallest == INT_MAX)
+        printf("-1");
+    else
+        printf("%d", secondSmallest);
+    return 0;
+}
+----------------------------------------
+5) Running sum of an array 
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for(int i = 1; i < n; i++) {
+        arr[i] = arr[i] + arr[i - 1];
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+----------------------------------------------------
+6) Left Rotation
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int first = arr[0];
+    for(int i = 0; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    arr[n - 1] = first;
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+---------------------------------------- 
+7) Right Rotation 
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int last = arr[n - 1];
+    for(int i = n - 1; i > 0; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[0] = last;
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+-------------------------------------------------------
+8) Linear Search 
+#include <stdio.h>
+int main() {
+    int n, key;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    scanf("%d", &key);
+    int index = -1;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] == key) {
+            index = i;
+            break;
+        }
+    }
+    printf("%d", index);
+    return 0;
+}
+-------------------------------------------------------
+9) Find the maximum product of two numbers in an array
+#include <stdio.h>
+#include <limits.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int max1 = INT_MIN, max2 = INT_MIN;
+    int min1 = INT_MAX, min2 = INT_MAX;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] > max1) {
+            max2 = max1;
+            max1 = arr[i];
+        } else if(arr[i] > max2) {
+            max2 = arr[i];
+        }
+        if(arr[i] < min1) {
+            min2 = min1;
+            min1 = arr[i];
+        } else if(arr[i] < min2) {
+            min2 = arr[i];
+        }
+    }
+    int product1 = max1 * max2; 
+    int product2 = min1 * min2; 
+    if(product1 > product2)
+        printf("%d", product1);
+    else
+        printf("%d", product2);
+    return 0;
+}
+----------------------------------------------------
+10) Split array into even and odd elements 
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for(int i = 0; i < n; i++) {
+        if(arr[i] % 2 == 0) {
+            printf("%d ", arr[i]);
+        }
+    }
+    printf("\n");
+    for(int i = 0; i < n; i++) {
+        if(arr[i] % 2 != 0) {
+            printf("%d ", arr[i]);
+        }
+    }
+    return 0;
+}
+---------------------------------------------------
+
+String 
+
+1) Palindrom 
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    scanf("%s", str);
+    int len = strlen(str);
+    int isPalindrome = 1;
+    for(int i = 0; i < len / 2; i++) {
+        if(str[i] != str[len - i - 1]) {
+            isPalindrome = 0;
+            break;
+        }
+    }
+    if(isPalindrome)
+        printf("YES");
+    else
+        printf("NO");
+
+    return 0;
+}
+----------------------------------------------------
+2) Count Words 
+#include <stdio.h>
+int main() {
+    char str[100];
+    fgets(str, sizeof(str), stdin);
+    int count = 0;
+    int i = 0;
+    if(str[0] != ' ' && str[0] != '\n') {
+        count = 1;
+    }
+    while(str[i] != '\0') {
+        if(str[i] == ' ' && str[i+1] != ' ' && str[i+1] != '\0' && str[i+1] != '\n') {
+            count++;
+        }
+        i++;
+    }
+    printf("%d", count);
+    return 0;
+}
+----------------------------------------------------
+3) Replace Vowels with space 
+#include <stdio.h>
+int main() {
+    char str[100];
+    scanf("%s", str);
+    for(int i = 0; str[i] != '\0'; i++) {
+        if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' ||
+           str[i] == 'o' || str[i] == 'u' ||
+           str[i] == 'A' || str[i] == 'E' || str[i] == 'I' ||
+           str[i] == 'O' || str[i] == 'U') {
+            str[i] = ' ';
+        }
+    }
+    printf("%s", str);
+    return 0;
+}
+----------------------------------------------------
+
+
+4) Count vowels and consonants
+#include <stdio.h>
+int main() {
+    char str[100];
+    int vowels = 0, consonants = 0;
+    scanf("%s", str);
+    for(int i = 0; str[i] != '\0'; i++) {
+        if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' ||
+           str[i] == 'o' || str[i] == 'u' ||
+           str[i] == 'A' || str[i] == 'E' || str[i] == 'I' ||
+           str[i] == 'O' || str[i] == 'U') {
+            vowels++;
+        }
+        else if((str[i] >= 'a' && str[i] <= 'z') ||
+                (str[i] >= 'A' && str[i] <= 'Z')) {
+            consonants++;
+        }
+    }
+    printf("%d %d", vowels, consonants);
+    return 0;
+}
+----------------------------------------
+5) Count alphabets, numbers, and special characters in a string
+#include <stdio.h>
+int main() {
+    char str[100];
+    int alphabets = 0, digits = 0, special = 0;
+    scanf("%s", str);
+    for(int i = 0; str[i] != '\0'; i++) {
+        if((str[i] >= 'a' && str[i] <= 'z') ||
+           (str[i] >= 'A' && str[i] <= 'Z')) {
+            alphabets++;
+        }
+        else if(str[i] >= '0' && str[i] <= '9') {
+            digits++;
+        }
+        else {
+            special++;
+        }
+    }
+    printf("%d %d %d", alphabets, digits, special);
+    return 0;
+}
+----------------------------------------
+6) Arrange characters of a word alphabetically
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    scanf("%s", str);
+    int len = strlen(str);
+    for(int i = 0; i < len - 1; i++) {
+        for(int j = 0; j < len - i - 1; j++) {
+            if(str[j] > str[j + 1]) {
+                char temp = str[j];
+                str[j] = str[j + 1];
+                str[j + 1] = temp;
+            }
+        }
+    }
+    printf("%s", str);
+    return 0;
+}
+----------------------------------------
+7) Anagram 
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[100], str2[100];
+    scanf("%s %s", str1, str2);
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+    if(len1 != len2) {
+        printf("NO");
+        return 0;
+    }
+    int freq[26] = {0};
+    for(int i = 0; i < len1; i++) {
+        freq[str1[i] - 'a']++;
+        freq[str2[i] - 'a']--;
+    }
+    for(int i = 0; i < 26; i++) {
+        if(freq[i] != 0) {
+            printf("NO");
+            return 0;
+        }
+    }
+    printf("YES");
+    return 0;
+}
+-------------------------------------------------------
+8) Maximum Frequency Character
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    scanf("%s", str);
+    int freq[26] = {0};
+    for(int i = 0; str[i] != '\0'; i++) {
+        freq[str[i] - 'a']++;
+    }
+    int maxFreq = 0;
+    char result = 'z'; 
+    for(int i = 0; i < 26; i++) {
+        if(freq[i] > maxFreq) {
+            maxFreq = freq[i];
+            result = i + 'a';
+        }
+        else if(freq[i] == maxFreq && freq[i] != 0) {
+            if(i + 'a' < result) {
+                result = i + 'a';
+            }
+        }
+    }
+    printf("%c", result);
+    return 0;
+}
+-------------------------------------------------------
+Structure  
+
+1) Create structure for time and add two timings
+#include <stdio.h>
+struct Time {
+    int hours;
+    int minutes;
+    int seconds;
+};
+
+int main() {
+    struct Time time1, time2, result;
+    scanf("%d %d %d", &time1.hours, &time1.minutes, &time1.seconds);
+    scanf("%d %d %d", &time2.hours, &time2.minutes, &time2.seconds);
+    
+    result.seconds = time1.seconds + time2.seconds;
+    result.minutes = time1.minutes + time2.minutes + result.seconds / 60;
+    result.hours = time1.hours + time2.hours + result.minutes / 60;
+    
+    result.minutes %= 60;
+    result.seconds %= 60;
+    printf("%02d:%02d:%02d\n", result.hours, result.minutes, result.seconds);
+
+    return 0;
+}
+----------------------------------------------------
+2) Create a struture for ID Card 
+	Name,Roll_no,DOB
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int roll_no;
+    char dob[15];
+};
+
+int main() {
+    int n;
+    scanf("%d",&n);
+    struct Student s[n];
+    for(int i = 0; i < n; i++) {
+        scanf(" %[^\n]", s[i].name);
+        scanf("%d", &s[i].roll_no);
+        scanf(" %[^\n]", s[i].dob);
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%s\n", s[i].name);
+        printf("%d\n", s[i].roll_no);
+        printf("%s\n", s[i].dob);
+    }
+
+    return 0;
+}
+----------------------------------------------------
+3) Create a structure for Bank Details 
+	Acc_Name,Acc_No,Balance 
+	#include <stdio.h>
+struct Bank {
+    char acc_name[50];
+    int acc_no;
+    float balance;
+};
+int main() {
+    int n;
+    scanf("%d",&n);
+    struct Bank b[n];
+    for(int i = 0; i < n; i++) {
+        scanf(" %[^\n]", b[i].acc_name);
+        scanf("%d", &b[i].acc_no);
+        scanf("%f", &b[i].balance);
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%s\n", b[i].acc_name);
+        printf("%d\n", b[i].acc_no);
+        printf("%.2f\n", b[i].balance);
+    }
+    return 0;
+}
+----------------------------------------------------
+4) Create a structure for Employees
+	ID,Name,Salary 
+	#include <stdio.h>
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+int main() {
+    int n;
+    scanf("%d",&n);
+    struct Employee e[n]; 
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &e[i].id);
+        scanf(" %[^\n]", e[i].name);
+        scanf("%f", &e[i].salary);
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%d\n", e[i].id);
+        printf("%s\n", e[i].name);
+        printf("%.2f\n", e[i].salary);
+    }
+    return 0;
+}
+----------------------------------------
+5) Create a structure for Book Management
+	title,author,price
+	#include <stdio.h>
+struct Book {
+    char title[100];
+    char author[50];
+    float price;
+};
+int main() {
+    int n;
+    scanf("%d",&n);
+    struct Book b[n];
+    for(int i = 0; i < n; i++) {
+        scanf(" %[^\n]", b[i].title);
+        scanf(" %[^\n]", b[i].author);
+        scanf("%f", &b[i].price);
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%s\n", b[i].title);
+        printf("%s\n", b[i].author);
+        printf("%.2f\n", b[i].price);
+    }
+    return 0;
+}
+----------------------------------------
+6) Create a structure for Car Management
+	Car,model,RentPer
+	#include <stdio.h>
+struct Car {
+    char car[50];
+    char model[50];
+    float rentPer;
+};
+int main() {
+    int n;
+    scanf("%d",&n);
+    struct Car c[n]; 
+    for(int i = 0; i < 3; i++) {
+        scanf(" %[^\n]", c[i].car);
+        scanf(" %[^\n]", c[i].model);
+        scanf("%f", &c[i].rentPer);
+    }
+    for(int i = 0; i < 3; i++) {
+        printf("%s\n", c[i].car);
+        printf("%s\n", c[i].model);
+        printf("%.2f\n", c[i].rentPer);
+    }
+    return 0;
+}
+
+----------------------------------------
+7) Create a structure for Student Details
+	name,age,totalmark
+	#include <stdio.h>
+struct Student {
+    char name[50];
+    int age;
+    float totalmark;
+};
+int main() {
+    int n;
+    scanf("%d",&n);
+    struct Student s[n];
+    for(int i = 0; i < n; i++) {
+        scanf(" %[^\n]", s[i].name);
+        scanf("%d", &s[i].age);
+        scanf("%f", &s[i].totalmark);
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%s\n", s[i].name);
+        printf("%d\n", s[i].age);
+        printf("%.2f\n", s[i].totalmark);
+    }
+    return 0;
+}
+-------------------------------------------------------
+	

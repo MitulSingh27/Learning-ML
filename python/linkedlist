@@ -1,0 +1,31 @@
+Linked list
+
+when allocating new memory in a list that is full, it allocates memory*2 for adding more memory
+lets say i add 284 in a list of size 5 which is filled, then there will be another space allocated which will house the extra stuf
+not efficient, yes
+
+linked list stores values at random locations, and has a pointer to memory location of the enxt element
+last element points to null
+adding elements,-you are only modifying the memory links wihtout much sacrifice
+-dont need pre allocated space
+-insertion is easier
+
+
+insert the element at the beginning=O(1)
+delete the element at the beginning=O(1)
+Insert/Delete element at the end=O(n)
+
+
+Double linked list
+has address of both previous and next element
+easier to reverse transverse
+
+
+⚡ LEVEL 1: WHAT IS A LINKED LIST?
+💡 Idea
+
+A Linked List is like a chain of boxes
+
+Each box (node) contains:
+
+[data | address of next node]

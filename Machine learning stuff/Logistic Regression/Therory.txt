@@ -1,0 +1,49 @@
+Logistic Regression-Not real regression, more like classification 
+
+What problem does it solve?
+Linear Regression predicts a continuous number.
+
+ex-
+---------------------------------
+input               output
+house features      house prices
+aircraft weight     fuel burn 
+Study hours         marks
+---------------------------------
+outputs can be-
+50
+75
+100
+
+but, what if we have to predict the probability of-
+passing or failing
+spam or not spam
+
+Logistic regression used probability-0,1 using an S curve called sigmoid function-
+
+p(y=1)=1/(1+e^-z)
+where z=mx+b
+where e=2.718
+
+we use this because it gives values between 0 and 1 every single time 
+| z   | Output  |
+| --- | ------- |
+| -10 | 0.00004 |
+| -5  | 0.006   |
+| 0   | 0.5     |
+| 5   | 0.993   |
+| 10  | 0.9999  |
+
+BEHIND THE SCENES-
+
+step1-linear equation
+z=mx+b
+
+step2-pass z into sigmoid
+probability=sigmoid(z)
+
+step3-decision boundary
+usually 0.5
+if value greater than 0.5, =1
+if value lesser than 0.5,=0
+
