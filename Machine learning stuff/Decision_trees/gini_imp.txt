@@ -37,3 +37,5 @@ A DECISION TREE CHOOSES THE SPLIT WHICH GIVES THE LEAST GINI IMPURITY BECAUSE LO
 
 formula- 1-((Pyes^2)-(Pno^2))
 we square because it rewards purity
+
+ combined gini= fraction*gini + fraction*gini
