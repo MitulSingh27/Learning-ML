@@ -1,0 +1,221 @@
+1.CLIENT VS SERVER
+Restaurant example
+    you=customer
+    waiter=messenger
+    kitchen=server
+
+client= the device or program requesting something
+        sends request
+        waits for response
+        displays data to the user
+
+server= the computer that provides the service or data
+        recieves request
+        processes it 
+        sends responses
+
+2.REQUEST RESPONSE CYCLE
+    a request is simply a message sent from the client asking the server to do something
+
+    process-
+        client sends request
+        server processes
+        sends response
+        response goes to client
+
+    a response is the servers reply
+
+    a request usually contains
+        what action to perform
+        which resource
+        extra information
+        optional data
+
+    a response usually contains
+        requested data
+        success or failure message
+        error message
+        status code
+
+    complete flow-
+        broswer sends request
+        fastapi query postgresql
+        postgresql returns rows
+        fastapi creates json response
+        goes to broswer
+        displayed
+
+3.IP ADDRESS
+    ip address used to communicate, requests send to youtube ip address, google ip address, etc
+
+    most common format- IPv4, 4 numbers separated by dots
+    newer version is called IPv6, because internet has more devices than ipv4 was designed for
+    ex-
+        ipv4-192.168.1.15
+        ipv6-2001:0db8:85a3:0000:0000:8a2e:0370:7334
+
+    Public vs Pvt IP address
+        public ip address is visible, it is the address to which the data comes to
+        the world can see this 
+
+        inside your home, the router gives each device an induvidual ip address,
+        so that these devices can talk to each other
+
+        this is a special ip called localhost-127.0.0.1
+
+4.DOMAIN NAME
+    human readable name that points to the IP address
+
+    parts of a domain name-
+        www.google.com
+        www-subdomain
+        google-domain name
+        com-top level domain (TLD)
+    
+    Tld-
+        .gov
+        .in
+        .ai 
+        .io 
+
+    domain name-
+        unique stuff 
+
+    subdomain-
+        a company can create subdomains
+            mail.google.com
+            docs.google.com
+        instead of making one giant website, you can have multiple separate services
+
+5.DOMAIN NAME SYSTEM (DNS)
+    converting domain name to ip address
+    phone book of the internet
+
+    you type google.com,
+    browser asks DNS, whats googles ip address
+    dns replies the ip address
+    browser sends request to google
+    googles server responds
+    then comes and displayed to your browser 
+
+    your computer keeps a dns cache, so that it remembers the websites u visit, for faster browisng
+
+6.PORTS 
+    imagine googles server
+    it provides-
+        gmail
+        google search
+        maps
+        docs
+        youtube
+        etc etc
+    how does the computer know which application should recieve it 
+
+    a port is a numbered communication endpoint on a computer 
+    it tells the operating system 
+        "Deliver this network request to this particular application"
+        127.0.0.1:80000
+        the ":8000" is the port
+
+    this enables one computer with many applications    
+    common ports-
+    |     Port | Common Use                        |
+    | -------: | --------------------------------- |
+    |   **80** | HTTP                              |
+    |  **443** | HTTPS                             |
+    |   **22** | SSH (remote login)                |
+    | **5432** | PostgreSQL                        |
+    | **3306** | MySQL                             |
+    | **6379** | Redis                             |
+    | **8000** | FastAPI (common development port) |
+    The important ones—80, 443, 5432, and 8000
+
+    they range from 0 to 65535
+    two apps cannot use the same port
+
+
+SO FAR THIS IS WHAT WEVE LEARNT 
+
+You
+ │
+ ▼
+google.com
+ │
+ ▼
+DNS
+ │
+ ▼
+Google IP
+ │
+ ▼
+Port 443 (HTTPS)
+ │
+ ▼
+Google Web Server
+ │
+ ▼
+Response
+ │
+ ▼
+Browser
+
+7.URL STRUCTURE 
+    url-uniform resource locator
+    A resource can be:
+        A webpage
+        An image
+        A video
+        A PDF
+        An API endpoint
+        A CSS file
+        A JSON response
+
+    https://api.example.com:8000/users/123?sort=name&page=2
+    
+    https-protocol
+    api- subdomain
+    example-domain
+    com-top level domain
+    8000-port
+    users/123-path
+    everything after "?" is called the query string, sends extra info to the server
+        /products?page=3- show page 3
+        ?page=2&sort=price&category=laptop- multiple parameters, numbers separated by &
+
+    every domain is a part of url but url is not a part of domain 
+
+
+COMPLETE FLOW 
+You
+ │
+ ▼
+Enter URL
+ │
+ ▼
+Protocol → HTTPS
+ │
+ ▼
+Domain → studentapi.com
+ │
+ ▼
+DNS finds IP
+ │
+ ▼
+Connect to IP on Port 8000
+ │
+ ▼
+FastAPI receives request for /students
+ │
+ ▼
+Query Parameter:
+page = 2
+ │
+ ▼
+Response
+ │
+ ▼
+Browser
+
+
+
+
