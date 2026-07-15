@@ -14,7 +14,7 @@ df["prev_marks"]=df["marks"].shift(1)
 print(df)
 pivot=df.pivot_table(
     values="marks",
-    index="name",
+    index="name",   
     columns='subject',
     aggfunc="mean"
 )
